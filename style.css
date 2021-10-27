@@ -59,6 +59,16 @@ main {
     width: 76px;
 }
 
+.cronometro-pausado {
+    animation: piscar 1s infinite;
+}
+
+@keyframes piscar {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 .minutos {
     color: #81D4FA;
     font-size: 3.75rem;
@@ -99,7 +109,6 @@ footer {
     justify-content: center;
     letter-spacing: 0.078125rem;
     height: 36px;
-    opacity: 0;
 }
 
 .botao-redondo {

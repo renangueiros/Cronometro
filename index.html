@@ -40,6 +40,10 @@
                 }
             }
 
+            function zerar() {
+                setSegundos(0)
+            }
+
             return (
                 <div className="cronometro">
                     <header>
@@ -47,7 +51,7 @@
                     </header>
                     <main>
                         <div className="decoracao-cronometro">
-                            <div className="container-cronometro">
+                            <div className={`container-cronometro ${(segundos > 0 && !estaContando) ? 'cronometro-pausado' : ''}`}>
                                 <span className="minutos">{Math.floor(segundos / 60)}</span>
                                 <span className="segundos">{String(segundos % 60).padStart(2, '0')}</span>
                             </div>
@@ -55,7 +59,9 @@
                     </main>
                     <footer>
                         <div className="container-rodape">
-                            <button className="botao">Zerar</button>
+                            {segundos > 0 &&
+                                <button className="botao" onClick={zerar}>Zerar</button>
+                            }
                         </div>
                         <button className="botao-redondo" onClick={iniciaCronometro}>
                             <i className="material-icons">{estaContando ? 'pause' : 'play_arrow'}</i>
